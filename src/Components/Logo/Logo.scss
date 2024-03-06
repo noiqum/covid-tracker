@@ -1,0 +1,10 @@
+.logo {
+  cursor: pointer;
+  width: max(4vw, 3rem);
+  height: auto;
+  fill: var(--nine);
+  &:hover {
+    fill: var(--five);
+    transition: all 0.3s ease-in-out;
+  }
+}
