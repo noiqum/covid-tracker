@@ -1,0 +1,11 @@
+@import-normalize; /* bring in normalize.css styles */
+
+/* rest of app styles */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #010101;
+}
