@@ -1,11 +1,17 @@
 @import-normalize; /* bring in normalize.css styles */
 
 /* rest of app styles */
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  color: #010101;
+:root {
+  --one: #f8f9fa;
+  --two: #e9ecef;
+  --three: #dee2e6;
+  --four: #ced4da;
+  --five: #adb5bd;
+  --six: #6c757d;
+  --seven: #495057;
+  --eight: #343a40;
+  --nine: #212529;
+}
+body {
+  background-color: var(--one);
 }
