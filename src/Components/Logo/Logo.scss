@@ -1,8 +1,12 @@
 .logo {
   cursor: pointer;
-  width: max(4vw, 3rem);
+  width: max(2vw, 1.25rem);
   height: auto;
   fill: var(--nine);
+  transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 768px) {
+    width: max(3vw, 2.75rem);
+  }
   &:hover {
     fill: var(--five);
     transition: all 0.3s ease-in-out;
