@@ -1,0 +1,62 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--two);
+  border-right: 1px solid var(--three);
+  transition: width 0.3s ease-in-out;
+  &.open {
+    width: 70%;
+    @media screen and (min-width: 768px) {
+      width: 40%;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 20%;
+    }
+    transition: width 0.3s ease-in-out;
+    & .sideBar__main {
+      display: flex;
+      flex-direction: column;
+      svg {
+        fill: var(--nine);
+
+        max-width: 30%;
+        width: 30%;
+        height: auto;
+        margin: 0.5rem auto;
+      }
+    }
+  }
+  &.close {
+    width: fit-content;
+    transition: width 0.3s ease-in-out;
+    & .sideBar__main {
+      svg {
+        fill: var(--nine);
+
+        width: 2rem;
+        max-width: 2rem;
+        height: auto;
+        margin: 0.5rem auto;
+      }
+    }
+  }
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--three);
+    background-color: var(--four);
+    &__back,
+    &__menu {
+      cursor: pointer;
+      color: var(--nine);
+    }
+  }
+  &__main {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
