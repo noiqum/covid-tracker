@@ -1,0 +1,15 @@
+.tooltip {
+  pointer-events: none;
+  cursor: none;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--one);
+  padding: 0.25rem;
+  border-radius: 5px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

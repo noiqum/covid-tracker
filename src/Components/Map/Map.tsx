@@ -1,7 +1,45 @@
+import { useEffect } from "react";
 import { countryList } from "../../Data/Data";
 import { Country } from "../Country/Country";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import {
+  setTooltipPosition,
+  setTooltipDisplay,
+  setTooltipName,
+} from "../../store/tooltipSlice";
 
 export const Map = () => {
+  const dispatch = useAppDispatch();
+  const { name } = useAppSelector((state) => state.tooltip);
+  function mouseTracker(event: MouseEvent) {
+    if (event.target instanceof SVGPathElement) {
+      if (name !== event.target.attributes.getNamedItem("name")?.value) {
+        const { x, y } = event.target.getBoundingClientRect();
+        console.log(
+          "name",
+          event.target.attributes.getNamedItem("name")?.value
+        );
+        dispatch(setTooltipDisplay(true));
+        dispatch(
+          setTooltipName(
+            event.target.attributes.getNamedItem("name")?.value || null
+          )
+        );
+        dispatch(
+          setTooltipPosition({
+            x: x + 10,
+            y: y - 10,
+          })
+        );
+      }
+    } else {
+      dispatch(setTooltipDisplay(false));
+    }
+  }
+  useEffect(() => {
+    document.addEventListener("mousemove", mouseTracker);
+    return () => document.removeEventListener("mousemove", mouseTracker);
+  }, []);
   return (
     <div className="map">
       <svg

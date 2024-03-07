@@ -3,10 +3,12 @@ import { themeSlice } from "./themeSlice";
 import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import { rootSaga } from "./sagas";
 import { totalSlice } from "./totalSlice";
+import { tooltipSlice } from "./tooltipSlice";
 
 const rootReducer = combineReducers({
   theme: themeSlice.reducer,
   total: totalSlice.reducer,
+  tooltip: tooltipSlice.reducer,
 });
 
 const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
