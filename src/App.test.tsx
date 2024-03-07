@@ -1,9 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
+
 import App from "./App";
+import { renderWithProviders } from "./test-utils";
 
-test("renders learn react link", () => {
-  render(<App />);
+test("render App", () => {
+  const { container } = renderWithProviders(<App />);
 
-  expect(App).toBeInTheDocument();
+  expect(container).toBeInTheDocument();
 });
