@@ -1,6 +1,6 @@
 import axios from "axios";
 import { TReportTotalRequest, TReportTotalResponse } from "./serviceTypes";
-const baseUrl = "https://covid-19-statistics.p.rapidapi.com/";
+export const baseUrl = "https://covid-19-statistics.p.rapidapi.com/";
 const key = "fbdddd78eamshbd33761fd3fd9c4p119de0jsn46c528566283";
 const host = "covid-19-statistics.p.rapidapi.com";
 
@@ -10,6 +10,7 @@ axios.interceptors.request.use(function (config) {
   return config;
 });
 
+export default axios;
 export const getTotalReport = async ({ date }: TReportTotalRequest) => {
   return new Promise<TReportTotalResponse>((resolve, reject) => {
     axios

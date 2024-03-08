@@ -38,6 +38,7 @@ export default function SideBar() {
             name="date"
             id="date"
             onChange={(e) => setDate(e.target.value)}
+            value={date}
           />
         </label>
       </div>

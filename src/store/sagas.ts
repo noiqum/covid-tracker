@@ -1,6 +1,7 @@
-import { all } from "redux-saga/effects";
-import { watchTotalSaga } from "./totalSaga";
+import { takeLatest } from "redux-saga/effects";
+import { totalSaga } from "./totalSaga";
+import { setTotal } from "./totalSlice";
 
 export function* rootSaga() {
-  yield all([watchTotalSaga()]);
+  yield takeLatest(setTotal.type, totalSaga);
 }
