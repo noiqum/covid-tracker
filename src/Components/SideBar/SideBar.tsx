@@ -32,7 +32,8 @@ export default function SideBar() {
       </div>
       <div className="sideBar__main">
         <Logo></Logo>
-        <div className="sideBar__main__table">
+        <div className={`sideBar__main__table ${loading}`}>
+          <h3>World Covid Report</h3>
           <label htmlFor="date">
             <input
               type="date"

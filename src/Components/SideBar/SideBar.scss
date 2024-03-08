@@ -1,10 +1,10 @@
 .sideBar {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   background-color: var(--two);
   border-right: 1px solid var(--three);
-  transition: width 0.3s ease-in-out;
+  max-height: 100vh;
   &.open {
     width: 70%;
     @media screen and (min-width: 768px) {
@@ -17,6 +17,11 @@
     & .sideBar__main {
       display: flex;
       flex-direction: column;
+      flex: 1;
+      font-size: 0.875rem;
+      @media screen and (min-width: 1280px) {
+        font-size: 1rem;
+      }
       svg {
         fill: var(--nine);
 
@@ -28,7 +33,17 @@
       &__table {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         width: 100%;
+        flex: 1;
+        & > p {
+          color: var(--nine);
+          border-bottom: 1px solid var(--five);
+          & > span:first-child {
+            font-weight: bold;
+            margin-right: 0.25rem;
+          }
+        }
       }
     }
   }
