@@ -13,13 +13,12 @@ export const Map = () => {
   const { name } = useAppSelector((state) => state.tooltip);
   const mouseTracker = useCallback(
     (event: MouseEvent) => {
-      if (event.target instanceof SVGPathElement) {
+      if (
+        event.target instanceof SVGPathElement &&
+        event.target.parentElement?.id === "map"
+      ) {
         if (name !== event.target.attributes.getNamedItem("name")?.value) {
           const { x, y } = event.target.getBoundingClientRect();
-          console.log(
-            "name",
-            event.target.attributes.getNamedItem("name")?.value
-          );
           dispatch(setTooltipDisplay(true));
           dispatch(
             setTooltipName(
@@ -58,6 +57,7 @@ export const Map = () => {
         viewBox="0 0 2000 857"
         width="100%"
         xmlns="http://www.w3.org/2000/svg"
+        id="map"
       >
         {countryList.map((country, index) => {
           return (

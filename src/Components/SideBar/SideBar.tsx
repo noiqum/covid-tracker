@@ -32,16 +32,17 @@ export default function SideBar() {
       </div>
       <div className="sideBar__main">
         <Logo></Logo>
-
-        <label htmlFor="date">
-          <input
-            type="date"
-            name="date"
-            id="date"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-          />
-        </label>
+        <div className="sideBar__main__table">
+          <label htmlFor="date">
+            <input
+              type="date"
+              name="date"
+              id="date"
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
