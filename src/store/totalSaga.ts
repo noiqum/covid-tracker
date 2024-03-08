@@ -24,13 +24,13 @@ export function* gettotalSaga(action: any) {
 
   try {
     console.log("date", action.payload.date);
-    const response: TReportTotalResponse = yield call(
+    const response: { data: { data: TReportTotalResponse } } = yield call(
       getTotalNumbers,
       action.payload.date
     );
     yield put({
       type: setTotal.type,
-      payload: response,
+      payload: response.data.data,
     });
   } catch (error: any) {
     yield put(setError(error.response?.data.message));

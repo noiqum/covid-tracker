@@ -42,6 +42,30 @@ export default function SideBar() {
               value={date}
             />
           </label>
+          <p>
+            <span>Date</span>
+            <span>{response?.date}</span>
+          </p>
+          <p>
+            <span>Last Updated</span>
+            <span>{response?.last_update}</span>
+          </p>
+          <p>
+            <span>Confirmed</span>
+            <span>{response?.confirmed}</span>
+          </p>
+          <p>
+            <span>Deaths</span>
+            <span>{response?.deaths}</span>
+          </p>
+          <p>
+            <span>Recovered</span>
+            <span>{response?.recovered}</span>
+          </p>
+          <p>
+            <span>Active</span>
+            <span>{response?.active}</span>
+          </p>
         </div>
       </div>
     </div>
