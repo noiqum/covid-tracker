@@ -4,14 +4,15 @@ import "./SideBar.scss";
 import { ReactComponent as Logo } from "../../Assets/Svg/logo.svg";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useEffect, useState } from "react";
-import { setTotal } from "../../store/totalSlice";
+
 export default function SideBar() {
   const dispatch = useAppDispatch();
   const { response, loading, error } = useAppSelector((state) => state.total);
   const [open, setOpen] = useState(true);
   const [date, setDate] = useState("2020-04-01");
   useEffect(() => {
-    dispatch(setTotal({ date: date }));
+    dispatch({ type: "SET_TOTAL", payload: { date } });
+    console.log("service call");
   }, [date, dispatch]);
 
   return (

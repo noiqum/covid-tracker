@@ -1,6 +1,5 @@
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
-import { getTotalReport } from "../API/service";
-import { TReportTotalRequest, TReportTotalResponse } from "../API/serviceTypes";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { TReportTotalResponse } from "../API/serviceTypes";
 import { setTotal, setLoading, setError } from "./totalSlice";
 import axios from "../API/service";
 
@@ -21,21 +20,23 @@ async function getTotalNumbers(date: string) {
 }
 
 export function* gettotalSaga(action: any) {
+  console.log("date", action.payload.date);
+
   try {
     console.log("date", action.payload.date);
-    yield put(setLoading(true));
     const response: TReportTotalResponse = yield call(
       getTotalNumbers,
       action.payload.date
     );
-    yield put(setTotal(response));
+    yield put({
+      type: setTotal.type,
+      payload: response,
+    });
   } catch (error: any) {
     yield put(setError(error.response?.data.message));
     console.log(error);
-  } finally {
-    yield put(setLoading(false));
   }
 }
 export function* totalSaga() {
-  yield takeEvery(setTotal.type, gettotalSaga);
+  yield takeEvery("SET_TOTAL", gettotalSaga);
 }

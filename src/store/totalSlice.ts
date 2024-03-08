@@ -4,30 +4,23 @@ import { TReportTotalResponse } from "../API/serviceTypes";
 type TTotalState = {
   response: TReportTotalResponse | null;
   error: string | null;
-  loading: boolean;
+  loading: "loading" | "idle" | "failed";
 };
 
 export const totalSlice = createSlice({
   name: "total",
-  initialState: { response: null, error: null, loading: false } as TTotalState,
+  initialState: { response: null, error: null, loading: "idle" } as TTotalState,
   reducers: {
     setTotal: (state, action) => {
-      return {
-        ...state,
-        response: action.payload,
-      };
+      state.response = action.payload;
+      state.loading = "idle";
     },
-    setLoading: (state, action) => {
-      return {
-        ...state,
-        loading: action.payload,
-      };
+    setLoading: (state) => {
+      state.loading = "loading";
     },
     setError: (state, action) => {
-      return {
-        ...state,
-        error: action.payload,
-      };
+      state.error = action.payload;
+      state.loading = "failed";
     },
   },
 });
