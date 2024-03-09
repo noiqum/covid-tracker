@@ -4,11 +4,13 @@ import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import { rootSaga } from "./sagas";
 import { totalSlice } from "./totalSlice";
 import { tooltipSlice } from "./tooltipSlice";
+import { contentSlice } from "./contentSlice";
 
 const appReducer = combineReducers({
   theme: themeSlice.reducer,
   total: totalSlice.reducer,
   tooltip: tooltipSlice.reducer,
+  content: contentSlice.reducer,
 });
 const rootReducer = (
   state: any,
@@ -16,21 +18,7 @@ const rootReducer = (
 ): ReturnType<typeof appReducer> => {
   return appReducer(state, action);
 };
-/* const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
 
-export function setupStore(preloadedState?: Partial<RootState>) {
-  return configureStore({
-    reducer: rootReducer,
-    preloadedState,
-    middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat(sagaMiddleware);
-    },
-  });
-}
-const store = setupStore({});
-sagaMiddleware.run(rootSaga);
-
-export default store; */
 export function setupStore(preloadedState?: Partial<RootState>) {
   const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
   const store = configureStore({
