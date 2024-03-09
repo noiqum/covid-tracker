@@ -1,4 +1,5 @@
 import { ContentToogle } from "../ContentToogle/ContentToogle";
+import "./Navigation.scss";
 
 interface NavigationProps {
   type: "main" | "side";
