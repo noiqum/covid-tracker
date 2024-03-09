@@ -15,3 +15,8 @@ export type TReportTotalResponse = {
   active_diff: number;
   fatality_rate: number;
 };
+
+export type TRegion = {
+  iso: string;
+  name: string;
+};

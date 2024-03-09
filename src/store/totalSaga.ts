@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { TReportTotalResponse } from "../API/serviceTypes";
-import { setTotal, setLoading, setError } from "./totalSlice";
+import { setTotal, setError } from "./totalSlice";
 import axios from "../API/service";
 
 async function getTotalNumbers(date: string) {
