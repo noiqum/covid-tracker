@@ -1,0 +1,43 @@
+.content__toogle {
+  display: flex;
+  align-items: center;
+  background-color: var(--three);
+  border: radius 7px;
+  padding: 0.5rem;
+  margin: 1rem;
+
+  input {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+  &__label--map,
+  &__label--list {
+    display: flex;
+    align-items: center;
+    min-width: 60px;
+    padding: 5px;
+    border-radius: 7px;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    & svg {
+      stroke: var(--five);
+    }
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--five);
+      margin-left: 7px;
+    }
+    &.active {
+      background-color: var(--seven);
+      transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+      & span {
+        color: var(--one);
+      }
+      & svg {
+        stroke: var(--one);
+      }
+    }
+  }
+}
