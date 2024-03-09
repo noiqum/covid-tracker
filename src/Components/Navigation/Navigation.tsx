@@ -1,4 +1,4 @@
-import { displayElement } from "../Main/Main";
+import { ContentToogle } from "../ContentToogle/ContentToogle";
 
 interface NavigationProps {
   type: "main" | "side";
@@ -14,7 +14,7 @@ export const Navigation = ({ type }: NavigationProps) => {
       }
     >
       <div className="navigation__icon">
-        {type === "main" && <button>Update</button>}
+        {type === "main" && <ContentToogle />}
         {type === "side" && <button>Update</button>}
       </div>
       <div className="navigation__bar"></div>

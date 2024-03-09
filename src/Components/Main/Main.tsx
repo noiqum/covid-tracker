@@ -2,6 +2,7 @@ import { useAppSelector } from "../../store/hooks";
 import { Tooltip } from "../ToolTip/Tooltip";
 import { Map } from "../Map/Map";
 import "./Main.scss";
+import { Navigation } from "../Navigation/Navigation";
 
 export type displayElement = "map" | "list";
 export const Main = () => {
@@ -9,6 +10,7 @@ export const Main = () => {
   const { displayContent } = useAppSelector((state) => state.content);
   return (
     <div className="main">
+      <Navigation type="main" />
       {displayContent === "map" && (
         <>
           <Tooltip name={name} x={x} y={y} display={display} />
