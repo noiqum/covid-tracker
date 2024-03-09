@@ -5,12 +5,14 @@ import { rootSaga } from "./sagas";
 import { totalSlice } from "./totalSlice";
 import { tooltipSlice } from "./tooltipSlice";
 import { contentSlice } from "./contentSlice";
+import { sidebarSlice } from "./sidebarSlice";
 
 const appReducer = combineReducers({
   theme: themeSlice.reducer,
   total: totalSlice.reducer,
   tooltip: tooltipSlice.reducer,
   content: contentSlice.reducer,
+  sidebar: sidebarSlice.reducer,
 });
 const rootReducer = (
   state: any,

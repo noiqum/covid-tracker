@@ -4,11 +4,12 @@ import "./SideBar.scss";
 import { ReactComponent as Logo } from "../../Assets/Svg/logo.svg";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useEffect, useState } from "react";
+import { closeSidebar, openSidebar } from "../../store/sidebarSlice";
 
 export default function SideBar() {
   const dispatch = useAppDispatch();
   const { response, loading, error } = useAppSelector((state) => state.total);
-  const [open, setOpen] = useState(true);
+  const { open } = useAppSelector((state) => state.sidebar);
   const [date, setDate] = useState("2020-04-01");
   useEffect(() => {
     dispatch({ type: "SET_TOTAL", payload: { date } });
@@ -20,12 +21,12 @@ export default function SideBar() {
       <div className="sideBar__head">
         {open ? (
           <ArrowLeftSvg
-            onClick={() => setOpen(false)}
+            onClick={() => dispatch(closeSidebar())}
             className="sideBar__head__back"
           />
         ) : (
           <MenuSvg
-            onClick={() => setOpen(true)}
+            onClick={() => dispatch(openSidebar())}
             className="sideBar__head__menu"
           />
         )}

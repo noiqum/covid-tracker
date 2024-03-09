@@ -7,10 +7,12 @@ import {
   setTooltipDisplay,
   setTooltipName,
 } from "../../store/tooltipSlice";
+import "./Map.scss";
 
 export const Map = () => {
   const dispatch = useAppDispatch();
   const { name } = useAppSelector((state) => state.tooltip);
+  const { open } = useAppSelector((state) => state.sidebar);
   const mouseTracker = useCallback(
     (event: MouseEvent) => {
       if (
@@ -44,31 +46,33 @@ export const Map = () => {
     return () => document.removeEventListener("mousemove", mouseTracker);
   }, [mouseTracker]);
   return (
-    <div className="map">
-      <svg
-        baseProfile="tiny"
-        fill="#ececec"
-        height="auto"
-        stroke="black"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth=".2"
-        version="1.2"
-        viewBox="0 0 2000 857"
-        width="100%"
-        xmlns="http://www.w3.org/2000/svg"
-        id="map"
-      >
-        {countryList.map((country, index) => {
-          return (
-            <Country
-              key={country.name + index}
-              name={country.name}
-              path={country.path}
-            />
-          );
-        })}
-      </svg>
+    <div className={`map ${open ? "open" : "close"}`}>
+      <div className="map__frame">
+        <svg
+          baseProfile="tiny"
+          fill="#ececec"
+          height="1714"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2"
+          version="1.2"
+          viewBox="0 0 4000 1714"
+          width="4000"
+          xmlns="http://www.w3.org/2000/svg"
+          id="map"
+        >
+          {countryList.map((country, index) => {
+            return (
+              <Country
+                key={country.name + index}
+                name={country.name}
+                path={country.path}
+              />
+            );
+          })}
+        </svg>
+      </div>
     </div>
   );
 };

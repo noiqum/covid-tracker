@@ -1,7 +1,44 @@
-.Map {
+.map {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
+  height: 100%;
+  transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &.open {
+    width: 30vw;
+    @media screen and (min-width: 768px) {
+      width: 60vw;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 70vw;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 80vw;
+    }
+  }
+  &.close {
+    width: 85vw;
+    @media screen and (min-width: 768px) {
+      width: 95vw;
+    }
+  }
+  &__frame {
+    overflow: auto;
+    width: 100%;
+    height: calc(100vh - 64px);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    &::-webkit-scrollbar {
+      /* WebKit */
+      width: 0;
+      height: 0;
+      display: none;
+    }
+    & > svg {
+      margin: 5vh;
+    }
+  }
 }
