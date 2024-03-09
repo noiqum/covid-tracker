@@ -1,4 +1,5 @@
 import { ContentToogle } from "../ContentToogle/ContentToogle";
+import { SearchBar } from "../SearchBar/SearchBar";
 import "./Navigation.scss";
 
 interface NavigationProps {
@@ -18,7 +19,9 @@ export const Navigation = ({ type }: NavigationProps) => {
         {type === "main" && <ContentToogle />}
         {type === "side" && <button>Update</button>}
       </div>
-      <div className="navigation__bar"></div>
+      <div className="navigation__bar">
+        <SearchBar />
+      </div>
     </nav>
   );
 };

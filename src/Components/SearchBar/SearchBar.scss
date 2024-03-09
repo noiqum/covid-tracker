@@ -1,0 +1,46 @@
+.SearchBar {
+  position: relative;
+  & > svg {
+    stroke: var(--nine);
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    & > svg {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 5px;
+    }
+  }
+  &__input {
+    outline: none;
+    border: none;
+
+    &::placeholder {
+      color: var(--nine);
+    }
+    &:focus {
+      border: 1px solid var(--nine);
+    }
+    background-color: var(--two);
+    color: var(--nine);
+    padding: 0.95rem 0.25rem;
+    border-radius: 5px;
+
+    font-size: 0.875rem;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 1.5rem;
+      padding: 0.5rem;
+      padding-left: 2rem;
+      font-size: 1rem;
+    }
+    @media screen and (min-width: 1024px) {
+      margin-right: 2rem;
+    }
+    @media screen and (min-width: 1280px) {
+      margin-right: 3rem;
+    }
+  }
+}
