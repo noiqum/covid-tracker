@@ -34,9 +34,13 @@ export const GridList = () => {
   }
   return (
     <div className="grid-list">
-      {Object.keys(groups).map((letter) => {
+      {Object.keys(groups).map((letter, index) => {
         return (
-          <div className="grid-list__group" key={letter}>
+          <div
+            style={{ animationDelay: `${index * 0.15}s` }}
+            className="grid-list__group"
+            key={letter}
+          >
             <h3>{letter}</h3>
             <section>
               {groups[letter].map((country) => {
