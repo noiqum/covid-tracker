@@ -6,8 +6,41 @@
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-gap: 1vw;
   }
   @media screen and (min-width: 1280px) {
     grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  }
+  &__group {
+    position: relative;
+    padding: 1rem;
+    &:nth-of-type(odd) {
+      background-color: var(--three);
+      & > h3 {
+        color: var(--one);
+      }
+    }
+    &:nth-of-type(even) {
+      background-color: var(--one);
+      & > h3 {
+        color: var(--three);
+      }
+    }
+    & > h3 {
+      margin: unset;
+      font-size: max(2rem, 7vw);
+      font-family: "Space Mono", monospace;
+      z-index: 1;
+      line-height: max(2rem, 7vw);
+    }
+    border: 2px solid var(--three);
+    @media screen and (min-width: 1280px) {
+      & > section {
+        position: relative;
+        z-index: 2;
+        columns: 2;
+        column-gap: 1rem;
+      }
+    }
   }
 }

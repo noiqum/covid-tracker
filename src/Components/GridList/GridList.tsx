@@ -36,13 +36,13 @@ export const GridList = () => {
     <div className="grid-list">
       {Object.keys(groups).map((letter) => {
         return (
-          <div key={letter}>
+          <div className="grid-list__group" key={letter}>
             <h3>{letter}</h3>
-            <ul>
+            <section>
               {groups[letter].map((country) => {
                 return <li key={country.name}>{country.name}</li>;
               })}
-            </ul>
+            </section>
           </div>
         );
       })}
