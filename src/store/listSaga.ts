@@ -37,7 +37,7 @@ export function* getListSaga() {
       type: getList.type,
       payload: sortedRegions,
     });
-    put({
+    yield put({
       type: setLoading.type,
       payload: false,
     });

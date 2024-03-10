@@ -3,6 +3,7 @@ import { Tooltip } from "../ToolTip/Tooltip";
 import { Map } from "../Map/Map";
 import "./Main.scss";
 import { Navigation } from "../Navigation/Navigation";
+import { GridList } from "../GridList/GridList";
 
 export type displayElement = "map" | "list";
 export const Main = () => {
@@ -17,6 +18,7 @@ export const Main = () => {
           <Map />
         </>
       )}
+      {displayContent === "list" && <GridList />}
     </div>
   );
 };
