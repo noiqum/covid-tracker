@@ -17,7 +17,7 @@ export const Map = () => {
     (event: MouseEvent) => {
       if (
         event.target instanceof SVGPathElement &&
-        event.target.parentElement?.id === "map"
+        event.target.parentElement?.parentElement?.id === "map"
       ) {
         if (name !== event.target.attributes.getNamedItem("name")?.value) {
           const { x, y } = event.target.getBoundingClientRect();
