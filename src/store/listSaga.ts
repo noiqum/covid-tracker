@@ -19,11 +19,23 @@ export function* getListSaga() {
       type: setLoading.type,
       payload: true,
     });
-    const response: { data: { data: TRegion[] } } = yield call(getRegionsList);
+    const response: { data: TRegion[] } = yield call(getRegionsList);
     console.log("list res", response);
+    const sortedRegions = response.data.sort((a: TRegion, b: TRegion) => {
+      let nameA = a.name.toLowerCase();
+      let nameB = b.name.toLowerCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+    console.log(sortedRegions);
     yield put({
       type: getList.type,
-      payload: response.data,
+      payload: sortedRegions,
     });
     put({
       type: setLoading.type,
