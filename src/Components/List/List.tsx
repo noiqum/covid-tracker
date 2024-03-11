@@ -13,7 +13,7 @@ export const List = ({ regions, open, searchParam }: ListProps) => {
   const [filteredRegions, setFilteredRegions] = useState(regions);
 
   useEffect(() => {
-    if (searchParam.length > 2) {
+    if (searchParam.length >= 2) {
       const filtered = regions.filter((region) => {
         return region.name.toLowerCase().includes(searchParam.toLowerCase());
       });

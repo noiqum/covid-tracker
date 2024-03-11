@@ -17,7 +17,7 @@ export const SearchBar = () => {
   }, [list, loading, dispatch]);
 
   useEffect(() => {
-    if (searchQuery.length > 2) {
+    if (searchQuery.length >= 2) {
       dispatch(setOpen(true));
     }
     if (searchQuery.length === 0) {
