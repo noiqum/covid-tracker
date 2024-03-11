@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useNavigate, useParams } from "react-router-dom";
+import { Navigation } from "../../Components/Navigation/Navigation";
 
 export const CountryPage = () => {
   const { country } = useParams();
@@ -37,5 +38,9 @@ export const CountryPage = () => {
     }
   }, [iso, dispatch, date]);
 
-  return <div className="CountryPage">CountryPage</div>;
+  return (
+    <div className="CountryPage">
+      <Navigation type="side" />
+    </div>
+  );
 };

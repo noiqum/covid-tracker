@@ -6,4 +6,7 @@
   align-items: center;
   max-width: 95vw;
   padding-right: 1rem;
+  &__icon__home {
+    cursor: pointer;
+  }
 }
