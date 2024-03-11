@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TRegion } from "../../API/serviceTypes";
 import "./List.scss";
+import { ListItem } from "../ListItem/ListItem";
 
 interface ListProps {
   regions: TRegion[];
@@ -25,11 +26,7 @@ export const List = ({ regions, open, searchParam }: ListProps) => {
   return (
     <ul id="searchlist" className={`List ${open ? "List--open" : ""}`}>
       {filteredRegions.map((region) => {
-        return (
-          <li key={region.name} className="List__item">
-            {region.name}
-          </li>
-        );
+        return <ListItem key={region.name} country={region} />;
       })}
     </ul>
   );
