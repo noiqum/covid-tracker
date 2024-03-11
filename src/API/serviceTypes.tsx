@@ -32,7 +32,7 @@ export type CountryDetail = {
   active: number;
   active_diff: number;
   fatality_rate: number;
-  region: regionResponse[];
+  region: regionResponse;
 };
 export type regionResponse = {
   iso: string;

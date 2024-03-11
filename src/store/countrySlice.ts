@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CountryDetail, CountryDetailSum } from "../API/serviceTypes";
 
 type TCountrySliceState = {
-  countryDetail: null | CountryDetail;
+  countryDetail: null | CountryDetail[];
   selectedDate: string | null;
   countryDetailSum: null | CountryDetailSum;
   loading: boolean;
