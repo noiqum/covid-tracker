@@ -1,3 +1,4 @@
+import "./Article.scss";
 interface ArticleProps {
   title: string;
   description: string;
