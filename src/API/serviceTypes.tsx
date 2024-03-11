@@ -73,3 +73,57 @@ export type CountryDetailSum = {
   active_diff: number;
   fatality_rate: number;
 };
+export type location = {
+  long: number;
+  countryOrRegion: string;
+  provinceOrState: string | null;
+  county: string | null;
+  isoCode: string;
+  lat: number;
+};
+export type Article = {
+  path: string;
+  title: string | null;
+  excerpt: string;
+  sourceUrl: string | null;
+  webUrl: string;
+  originalUrl: string;
+  featuredContent: string | null;
+  highlight: string | null;
+  heat: number;
+  tags: string[];
+  images: {
+    url: string;
+    width: number;
+    height: number;
+    title: string | null;
+    attribution: string | null;
+    isCached: boolean;
+  }[];
+  url: string;
+  width: number;
+  height: number;
+  attribution: string | null;
+  isCached: boolean;
+  content: string;
+  type: string;
+  ampWebUrl: string;
+  cdnAmpWebUrl: string;
+  publishedDateTime: string;
+  updatedDateTime: string | null;
+  provider: {
+    name: string;
+    domain: string;
+  };
+  publishers: null;
+  authors: null;
+  locale: string;
+  categories: string[];
+  topics: string[];
+};
+
+export type newsResponse = {
+  location: location;
+  updatedDateTime: string;
+  news: Article[];
+};
