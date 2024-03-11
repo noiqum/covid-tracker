@@ -10,5 +10,8 @@
     @media screen and (min-width: 768px) {
       grid-template-columns: repeat(4, 25%);
     }
+    transform: translateY(5%);
+    opacity: 0;
+    animation: moveUp 1s ease-in-out forwards;
   }
 }
