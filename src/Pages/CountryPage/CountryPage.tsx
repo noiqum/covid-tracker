@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -7,6 +7,9 @@ export const CountryPage = () => {
   const navigate = useNavigate();
   const { list } = useAppSelector((state) => state.list);
   const dispatch = useAppDispatch();
+  const [iso, setIso] = useState<null | string>(null);
+  const [date, setDate] = useState("2020-04-01");
+
   useEffect(() => {
     if (list.length === 0) {
       dispatch({ type: "SET_LIST" });
@@ -19,12 +22,20 @@ export const CountryPage = () => {
       );
       if (contIndex === -1) {
         navigate("/not-found");
+      } else {
+        setIso(list[contIndex].iso);
       }
     }
   }, [list, dispatch, country, navigate]);
-  if (!country) {
-    return <div>CountryPage</div>;
-  }
+
+  useLayoutEffect(() => {
+    if (iso) {
+      dispatch({
+        type: "SET_COUNTRY_DETAIL",
+        payload: { iso, date },
+      });
+    }
+  }, [iso, dispatch, date]);
 
   return <div className="CountryPage">CountryPage</div>;
 };

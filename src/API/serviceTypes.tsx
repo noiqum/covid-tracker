@@ -59,3 +59,17 @@ export type CityDetail = {
 export type CountryResponse = {
   data: CountryDetail[];
 };
+
+export type CountryDetailSum = {
+  date: string;
+  confirmed: number;
+  deaths: number;
+  recovered: number;
+  confirmed_diff: number;
+  deaths_diff: number;
+  recovered_diff: number;
+  last_update: string;
+  active: number;
+  active_diff: number;
+  fatality_rate: number;
+};

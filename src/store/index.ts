@@ -7,6 +7,7 @@ import { tooltipSlice } from "./tooltipSlice";
 import { contentSlice } from "./contentSlice";
 import { sidebarSlice } from "./sidebarSlice";
 import { listSlice } from "./listSlice";
+import { countrySlice } from "./countrySlice";
 
 const appReducer = combineReducers({
   theme: themeSlice.reducer,
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   content: contentSlice.reducer,
   sidebar: sidebarSlice.reducer,
   list: listSlice.reducer,
+  country: countrySlice.reducer,
 });
 const rootReducer = (
   state: any,
