@@ -6,7 +6,12 @@
   align-items: center;
   max-width: 95vw;
   padding-right: 1rem;
+  &.navigation--side {
+    max-width: 100%;
+    width: 100%;
+  }
   &__icon__home {
     cursor: pointer;
+    margin-left: 1rem;
   }
 }
