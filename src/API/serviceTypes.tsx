@@ -83,7 +83,7 @@ export type location = {
 };
 export type Article = {
   path: string;
-  title: string | null;
+  title: string;
   excerpt: string;
   sourceUrl: string | null;
   webUrl: string;
@@ -92,19 +92,16 @@ export type Article = {
   highlight: string | null;
   heat: number;
   tags: string[];
-  images: {
-    url: string;
-    width: number;
-    height: number;
-    title: string | null;
-    attribution: string | null;
-    isCached: boolean;
-  }[];
-  url: string;
-  width: number;
-  height: number;
-  attribution: string | null;
-  isCached: boolean;
+  images:
+    | {
+        url: string;
+        width: number;
+        height: number;
+        title: string | null;
+        attribution: string | null;
+        isCached: boolean;
+      }[]
+    | null;
   content: string;
   type: string;
   ampWebUrl: string;
@@ -114,14 +111,14 @@ export type Article = {
   provider: {
     name: string;
     domain: string;
+    images: null;
+    publishers: null;
+    authors: null;
   };
-  publishers: null;
-  authors: null;
   locale: string;
   categories: string[];
   topics: string[];
 };
-
 export type newsResponse = {
   location: location;
   updatedDateTime: string;

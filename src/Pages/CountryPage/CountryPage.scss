@@ -3,6 +3,50 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  & > main {
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr 2fr 2fr;
+    }
+  }
+  &__news {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    position: relative;
+    & > h2 {
+      background-color: var(--two);
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: none;
+
+      grid-column: 1/5;
+      grid-row: 1/4;
+      background-color: var(--two);
+
+      overflow-y: auto;
+      max-height: calc(100vh - 4rem);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+    &__column {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      height: 100%;
+      max-height: 100%;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      scrollbar-width: none;
+    }
+  }
   &__info-boxes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
