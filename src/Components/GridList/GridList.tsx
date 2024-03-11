@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { TRegion } from "../../API/serviceTypes";
 import "./GridList.scss";
+import { ListItem } from "../ListItem/ListItem";
 
 export const GridList = () => {
   const { list, loading } = useAppSelector((state) => state.list);
@@ -44,7 +45,7 @@ export const GridList = () => {
             <h3>{letter}</h3>
             <section>
               {groups[letter].map((country) => {
-                return <li key={country.name}>{country.name}</li>;
+                return <ListItem country={country} key={country.name} />;
               })}
             </section>
           </div>

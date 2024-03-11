@@ -1,0 +1,15 @@
+.ListItem {
+  text-decoration: none;
+  display: block;
+  color: var(--six);
+  font-family: "Space Mono", monospace;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+  &:hover {
+    color: var(--eight);
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid var(--eight);
+  }
+}
