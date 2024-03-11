@@ -43,6 +43,8 @@
         & > p {
           color: var(--nine);
           border-bottom: 1px solid var(--five);
+          margin-bottom: max(1rem, 4vh);
+          padding-bottom: 0.25rem;
           & > span:first-child {
             font-weight: bold;
             margin-right: 0.25rem;
