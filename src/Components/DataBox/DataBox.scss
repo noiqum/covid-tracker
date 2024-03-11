@@ -1,0 +1,39 @@
+.data-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: max(1rem, 2vw);
+  color: var(--nine);
+  &__title {
+    font-size: max(1.5rem, 2vw);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: "Inter", sans-serif;
+    @media screen and (min-width: 768px) {
+      font-size: max(1.5rem, 1.25vw);
+    }
+  }
+  &__data {
+    font-size: max(2rem, 3vw);
+    font-weight: 900;
+    font-family: "Inter", sans-serif;
+    margin-bottom: 0.5rem;
+    @media screen and (min-width: 768px) {
+      font-size: max(1.5rem, 1.25vw);
+    }
+    @media screen {
+    }
+  }
+  &:nth-child(1) {
+    background-color: var(--two);
+  }
+  &:nth-child(2) {
+    background-color: var(--three);
+  }
+  &:nth-child(3) {
+    background-color: var(--four);
+  }
+  &:nth-child(4) {
+    background-color: var(--five);
+  }
+}
