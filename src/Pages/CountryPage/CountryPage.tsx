@@ -24,7 +24,7 @@ export const CountryPage = () => {
       dispatch({ type: "SET_LIST" });
     } else {
       const countryName = country?.toLowerCase().trim();
-      console.log("country", countryName);
+
       const contIndex = list.findIndex(
         (country) =>
           country.name.toLowerCase().replace(/\s/g, "").trim() === countryName
