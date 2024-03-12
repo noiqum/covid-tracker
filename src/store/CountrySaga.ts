@@ -39,6 +39,33 @@ function arrangeCountryDetailSum(dataList: CountryDetail[]) {
   console.log("countryDetailSum", countryDetailSum);
   return countryDetailSum;
 }
+const generateDataset = (): CountryDetailSum[] => {
+  const dataset: CountryDetailSum[] = [];
+  const startDate = new Date("2021-01-01");
+  const endDate = new Date("2021-06-01");
+  let currentDate = startDate;
+
+  while (currentDate <= endDate) {
+    const dateString = currentDate.toISOString().split("T")[0];
+    dataset.push({
+      date: dateString,
+      confirmed: Math.floor(Math.random() * 1000), // Random data for demonstration
+      deaths: Math.floor(Math.random() * 100),
+      recovered: Math.floor(Math.random() * 500),
+      confirmed_diff: Math.floor(Math.random() * 100),
+      deaths_diff: Math.floor(Math.random() * 10),
+      recovered_diff: Math.floor(Math.random() * 50),
+      last_update: dateString,
+      active: Math.floor(Math.random() * 200),
+      active_diff: Math.floor(Math.random() * 20),
+      fatality_rate: Math.random(),
+    });
+
+    currentDate.setDate(currentDate.getMonth() + 1);
+  }
+
+  return dataset;
+};
 
 async function getCountryDetail(iso: string, date: string) {
   try {
@@ -100,9 +127,15 @@ export function* getCountryDetailSaga(action: any) {
       arrangeCountryDetailSum(response.data)
     );
 
+    const historyDataExtended = [...historyData, countryDetailSum];
+
+    if (historyDataExtended.includes(null)) {
+      console.log("historyDataExtended", historyDataExtended);
+    }
+
     yield put({
       type: setHistoryData.type,
-      payload: historyData,
+      payload: historyDataExtended,
     });
 
     yield put({

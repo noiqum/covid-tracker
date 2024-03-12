@@ -6,12 +6,13 @@ import { DataBox } from "../../Components/DataBox/DataBox";
 import "./CountryPage.scss";
 import { news } from "../../Data/news";
 import { Article } from "../../Components/Article/Article";
+import { Trend } from "../../Components/Trend/Trend";
 
 export const CountryPage = () => {
   const { country } = useParams();
   const navigate = useNavigate();
   const { list } = useAppSelector((state) => state.list);
-  const { countryDetailSum, loading } = useAppSelector(
+  const { countryDetailSum, loading, historyData } = useAppSelector(
     (state) => state.country
   );
   const dispatch = useAppDispatch();
@@ -92,6 +93,9 @@ export const CountryPage = () => {
             diff={countryDetailSum?.recovered_diff}
             loading={loading}
           ></DataBox>
+        </section>
+        <section className="CountryPage__trend">
+          {historyData && <Trend data={historyData} label="active" />}
         </section>
         <aside className="CountryPage__news">
           <h2>Latest News</h2>
