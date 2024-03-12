@@ -13,7 +13,6 @@ export default function SideBar() {
   const [date, setDate] = useState("2020-04-01");
   useEffect(() => {
     dispatch({ type: "SET_TOTAL", payload: { date } });
-    console.log("service call");
   }, [date, dispatch]);
 
   return (

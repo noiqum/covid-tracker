@@ -20,10 +20,7 @@ async function getTotalNumbers(date: string) {
 }
 
 export function* gettotalSaga(action: any) {
-  console.log("date", action.payload.date);
-
   try {
-    console.log("date", action.payload.date);
     const response: { data: { data: TReportTotalResponse } } = yield call(
       getTotalNumbers,
       action.payload.date

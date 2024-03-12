@@ -20,7 +20,7 @@ export function* getListSaga() {
       payload: true,
     });
     const response: { data: TRegion[] } = yield call(getRegionsList);
-    console.log("list res", response);
+
     const sortedRegions = response.data.sort((a: TRegion, b: TRegion) => {
       let nameA = a.name.toLowerCase();
       let nameB = b.name.toLowerCase();
@@ -32,7 +32,7 @@ export function* getListSaga() {
       }
       return 0;
     });
-    console.log(sortedRegions);
+
     yield put({
       type: getList.type,
       payload: sortedRegions,
