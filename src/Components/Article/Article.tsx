@@ -1,4 +1,6 @@
 import "./Article.scss";
+import moment from "moment";
+
 interface ArticleProps {
   title: string;
   description: string;
@@ -26,7 +28,7 @@ export const Article = ({
 
       <div className="article__info">
         <div className="article__info__label">
-          <p className="article__date">{date}</p>
+          <p className="article__date">{moment(date).format("DD MMM YYYY")}</p>
           <p className="article__category">{category}</p>
         </div>
         <h3 className="article__title">{title}</h3>
