@@ -40,6 +40,11 @@
         justify-content: center;
         width: 100%;
         flex: 1;
+        &__error {
+          color: tomato;
+          font-weight: bold;
+          margin: 0.5rem;
+        }
         & h3 {
           color: var(--nine);
           margin-bottom: 1rem;

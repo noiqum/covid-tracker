@@ -43,6 +43,12 @@ export default function SideBar() {
               value={date}
             />
           </label>
+          {loading === "idle" && response?.last_update === undefined && (
+            <span className="sideBar__main__table__error">
+              For the date selected no data available. Please select another
+              date
+            </span>
+          )}
           <p>
             <span>Date:</span>
             <span>{response?.date}</span>
