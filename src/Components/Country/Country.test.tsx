@@ -14,4 +14,9 @@ describe("Country", () => {
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("href", "/country/test-name");
   });
+  test("should include usa case", () => {
+    renderWithProviders(<Country name="United States" path="test-path" />);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAttribute("href", "/country/us");
+  });
 });
