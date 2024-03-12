@@ -1,11 +1,13 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { all, call, put, takeEvery } from "redux-saga/effects";
 import axios, { baseUrl } from "../API/service";
 import { CountryDetail, CountryDetailSum } from "../API/serviceTypes";
 import {
   setLoading,
   setCountryDetail,
   setCountryDetailSum,
+  setHistoryData,
 } from "./countrySlice";
+import moment from "moment";
 
 function arrangeCountryDetailSum(dataList: CountryDetail[]) {
   if (dataList.length === 0) return null;
@@ -77,6 +79,30 @@ export function* getCountryDetailSaga(action: any) {
     yield put({
       type: setCountryDetailSum.type,
       payload: countryDetailSum,
+    });
+
+    //collect country data history for six months ago to present on country page
+
+    const months = Array(5)
+      .fill("*")
+      .map((_, i) => {
+        const currentDate = moment(action.payload.date);
+        return currentDate.subtract(i + 1, "months").format("YYYY-MM-DD");
+      });
+    const countryDetailsPromises = months.map((date) =>
+      call(getCountryDetail, action.payload.iso, date)
+    );
+    const historyResponses: { data: CountryDetail[] }[] = yield all(
+      countryDetailsPromises
+    );
+
+    const historyData = historyResponses.map((response) =>
+      arrangeCountryDetailSum(response.data)
+    );
+
+    yield put({
+      type: setHistoryData.type,
+      payload: historyData,
     });
 
     yield put({

@@ -6,6 +6,7 @@ type TCountrySliceState = {
   selectedDate: string | null;
   countryDetailSum: null | CountryDetailSum;
   loading: boolean;
+  historyData: null | CountryDetailSum[];
 };
 
 const initialState: TCountrySliceState = {
@@ -13,6 +14,7 @@ const initialState: TCountrySliceState = {
   selectedDate: null,
   countryDetailSum: null,
   loading: false,
+  historyData: null,
 };
 
 export const countrySlice = createSlice({
@@ -31,6 +33,9 @@ export const countrySlice = createSlice({
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
+    setHistoryData: (state, action) => {
+      state.historyData = action.payload;
+    },
   },
 });
 export const {
@@ -38,5 +43,6 @@ export const {
   setSelectedDate,
   setCountryDetailSum,
   setLoading,
+  setHistoryData,
 } = countrySlice.actions;
 export default countrySlice.reducer;
