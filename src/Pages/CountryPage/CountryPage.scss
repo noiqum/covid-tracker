@@ -88,5 +88,13 @@
       border-radius: 0.25rem;
       color: var(--nine);
     }
+    .error {
+      margin: 0.5rem;
+      font-size: 1.15rem;
+      color: tomato;
+      & > span:first-child {
+        text-transform: capitalize;
+      }
+    }
   }
 }

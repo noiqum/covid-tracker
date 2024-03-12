@@ -60,6 +60,12 @@ export const CountryPage = () => {
             />
           </label>
           <span>Last Update: {countryDetailSum?.last_update}</span>
+          {countryDetailSum === null && loading === false && (
+            <p className="error">
+              No data available for <span>{country}</span> on{" "}
+              <span>{date}</span>, please select another date.
+            </p>
+          )}
         </section>
         <section className="CountryPage__info-boxes">
           <DataBox
