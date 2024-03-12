@@ -70,6 +70,17 @@ export const CountryPage = () => {
             })}
           </div>
         </aside>
+        <section className="CountryPage__date">
+          <label htmlFor="date">
+            Date
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+        </section>
         <section className="CountryPage__info-boxes">
           <DataBox title="Active" data={countryDetailSum?.active}></DataBox>
           <DataBox

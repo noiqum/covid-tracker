@@ -59,4 +59,15 @@
     opacity: 0;
     animation: moveUp 1s ease-in-out forwards;
   }
+  &__date {
+    label {
+      color: var(--nine);
+    }
+    & input[type="date"] {
+      background-color: var(--two);
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      color: var(--nine);
+    }
+  }
 }
