@@ -1,12 +1,13 @@
 .data-box {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-radius: 1rem;
   padding: max(1rem, 2vw);
   color: var(--nine);
   &__title {
     font-size: max(1.5rem, 2vw);
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 0.5rem;
     font-family: "Inter", sans-serif;
     @media screen and (min-width: 768px) {
