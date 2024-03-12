@@ -29,7 +29,7 @@ export const Navigation = ({ type }: NavigationProps) => {
             onClick={() => navigate("/")}
             className="navigation__icon__home"
             role="link"
-            data-testId="homeIcon"
+            data-testid="homeIcon"
           >
             <HomeIcon></HomeIcon>
           </span>
