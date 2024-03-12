@@ -59,6 +59,7 @@ export const CountryPage = () => {
               onChange={(e) => setDate(e.target.value)}
             />
           </label>
+          <span>Last Update: {countryDetailSum?.last_update}</span>
         </section>
         <section className="CountryPage__info-boxes">
           <DataBox
