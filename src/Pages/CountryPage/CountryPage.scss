@@ -35,6 +35,8 @@
     }
   }
   &__news {
+    opacity: 0;
+    transform: translateY(100px);
     & > h2 {
       background-color: var(--two);
       padding: 0.5rem;
@@ -68,6 +70,7 @@
         ); /* Set the desired height for all rows */
       }
     }
+    animation: moveUp 1s ease-in-out forwards;
   }
   &__info-boxes {
     display: grid;
