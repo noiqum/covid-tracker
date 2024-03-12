@@ -4,7 +4,7 @@ import { Main } from "./Components/Main/Main";
 import "./App.scss";
 function App() {
   return (
-    <div className="App">
+    <div data-testid="app" className="App">
       <SideBar />
       <Main />
     </div>
