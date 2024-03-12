@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { TRegion } from "../../API/serviceTypes";
 import "./GridList.scss";
@@ -25,10 +25,6 @@ export const GridList = () => {
   const groups = useMemo(() => {
     return groupCountriesByFirstLetter(list);
   }, [list, groupCountriesByFirstLetter]);
-
-  useEffect(() => {
-    console.log(groups);
-  }, [groups]);
 
   if (loading) {
     return <div>Loading</div>;
