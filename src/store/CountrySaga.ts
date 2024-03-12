@@ -41,12 +41,17 @@ function arrangeCountryDetailSum(dataList: CountryDetail[]) {
 }
 const generateDataset = (): CountryDetailSum[] => {
   const dataset: CountryDetailSum[] = [];
-  const startDate = new Date("2021-01-01");
-  const endDate = new Date("2021-06-01");
-  let currentDate = startDate;
+  const dates = [
+    "2021-01-01",
+    "2021-02-01",
+    "2021-03-01",
+    "2021-04-01",
+    "2021-05-01",
+    "2021-06-01",
+  ];
 
-  while (currentDate <= endDate) {
-    const dateString = currentDate.toISOString().split("T")[0];
+  for (let i = 0; i < dates.length; i++) {
+    const dateString = dates[i];
     dataset.push({
       date: dateString,
       confirmed: Math.floor(Math.random() * 1000), // Random data for demonstration
@@ -60,8 +65,6 @@ const generateDataset = (): CountryDetailSum[] => {
       active_diff: Math.floor(Math.random() * 20),
       fatality_rate: Math.random(),
     });
-
-    currentDate.setDate(currentDate.getMonth() + 1);
   }
 
   return dataset;
@@ -127,10 +130,13 @@ export function* getCountryDetailSaga(action: any) {
       arrangeCountryDetailSum(response.data)
     );
 
-    const historyDataExtended = [...historyData, countryDetailSum];
+    let historyDataExtended = [...historyData, countryDetailSum];
 
     if (historyDataExtended.includes(null)) {
       console.log("historyDataExtended", historyDataExtended);
+      const dataset = generateDataset();
+      console.log("dataset", dataset);
+      historyDataExtended = [...dataset];
     }
 
     yield put({

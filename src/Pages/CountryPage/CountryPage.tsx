@@ -6,7 +6,7 @@ import { DataBox } from "../../Components/DataBox/DataBox";
 import "./CountryPage.scss";
 import { news } from "../../Data/news";
 import { Article } from "../../Components/Article/Article";
-import { Trend } from "../../Components/Trend/Trend";
+import Trend from "../../Components/Trend/Trend";
 
 export const CountryPage = () => {
   const { country } = useParams();
@@ -95,7 +95,11 @@ export const CountryPage = () => {
           ></DataBox>
         </section>
         <section className="CountryPage__trend">
+          <h2>Trend</h2>
           {historyData && <Trend data={historyData} label="active" />}
+          {historyData && <Trend data={historyData} label="confirmed" />}
+          {historyData && <Trend data={historyData} label="deaths" />}
+          {historyData && <Trend data={historyData} label="recovered" />}
         </section>
         <aside className="CountryPage__news">
           <h2>Latest News</h2>
