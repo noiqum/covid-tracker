@@ -40,6 +40,17 @@
         justify-content: center;
         width: 100%;
         flex: 1;
+        & h3 {
+          color: var(--nine);
+          margin-bottom: 1rem;
+        }
+        & input[type="date"] {
+          background-color: var(--two);
+          padding: 0.5rem;
+          border-radius: 0.25rem;
+          color: var(--nine);
+          margin-bottom: 2rem;
+        }
         & > p {
           color: var(--nine);
           border-bottom: 1px solid var(--five);
