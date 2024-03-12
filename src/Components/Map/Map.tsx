@@ -61,6 +61,7 @@ export const Map = () => {
           width="4000"
           xmlns="http://www.w3.org/2000/svg"
           id="map"
+          data-testid="map"
         >
           {countryList.map((country, index) => {
             return (
