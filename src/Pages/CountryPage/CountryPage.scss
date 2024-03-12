@@ -49,11 +49,16 @@
       grid-column: 1/5;
 
       background-color: var(--two);
+      border-radius: 1rem;
+      padding: 1rem;
     }
     &__column {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 1rem;
+      @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
       @media screen and (min-width: 1024px) {
         grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
         grid-gap: 3vmax;
