@@ -11,7 +11,9 @@ export const CountryPage = () => {
   const { country } = useParams();
   const navigate = useNavigate();
   const { list } = useAppSelector((state) => state.list);
-  const { countryDetailSum } = useAppSelector((state) => state.country);
+  const { countryDetailSum, loading } = useAppSelector(
+    (state) => state.country
+  );
   const dispatch = useAppDispatch();
   const [iso, setIso] = useState<null | string>(null);
   const [date, setDate] = useState("2020-04-01");
@@ -47,6 +49,43 @@ export const CountryPage = () => {
     <div className="CountryPage">
       <Navigation type="side" />
       <main>
+        <section className="CountryPage__date">
+          <label htmlFor="date">
+            Date
+            <input
+              type="date"
+              id="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+        </section>
+        <section className="CountryPage__info-boxes">
+          <DataBox
+            title="Active"
+            data={countryDetailSum?.active}
+            loading={loading}
+            diff={countryDetailSum?.active_diff}
+          ></DataBox>
+          <DataBox
+            title="Confirmed"
+            data={countryDetailSum?.confirmed}
+            diff={countryDetailSum?.confirmed_diff}
+            loading={loading}
+          ></DataBox>
+          <DataBox
+            title="Deaths"
+            data={countryDetailSum?.deaths}
+            diff={countryDetailSum?.deaths_diff}
+            loading={loading}
+          ></DataBox>
+          <DataBox
+            title="Recovered"
+            data={countryDetailSum?.recovered}
+            diff={countryDetailSum?.recovered_diff}
+            loading={loading}
+          ></DataBox>
+        </section>
         <aside className="CountryPage__news">
           <h2>Latest News</h2>
           <div className="CountryPage__news__column">
@@ -70,29 +109,6 @@ export const CountryPage = () => {
             })}
           </div>
         </aside>
-        <section className="CountryPage__date">
-          <label htmlFor="date">
-            Date
-            <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </label>
-        </section>
-        <section className="CountryPage__info-boxes">
-          <DataBox title="Active" data={countryDetailSum?.active}></DataBox>
-          <DataBox
-            title="Confirmed"
-            data={countryDetailSum?.confirmed}
-          ></DataBox>
-          <DataBox title="Deaths" data={countryDetailSum?.deaths}></DataBox>
-          <DataBox
-            title="Recovered"
-            data={countryDetailSum?.recovered}
-          ></DataBox>
-        </section>
       </main>
     </div>
   );

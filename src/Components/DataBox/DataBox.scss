@@ -5,6 +5,7 @@
   border-radius: 1rem;
   padding: max(1rem, 2vw);
   color: var(--nine);
+
   &__title {
     font-size: max(1.5rem, 2vw);
     font-weight: 400;
@@ -24,6 +25,20 @@
     }
     @media screen {
     }
+  }
+  &__diff {
+    display: flex;
+    align-items: center;
+    & small {
+      margin-right: 0.5rem;
+    }
+    & svg {
+      margin-left: 0.5rem;
+    }
+    & > * {
+      font-size: max(1.25rem, 1.25vw);
+    }
+    white-space: nowrap;
   }
   &:nth-child(1) {
     background-color: rgba(233, 236, 239, 0.7);
