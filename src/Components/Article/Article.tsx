@@ -7,7 +7,7 @@ interface ArticleProps {
   path: string;
   date: string;
   image: string;
-  category: string;
+
   source: string;
 }
 
@@ -17,7 +17,7 @@ export const Article = ({
   path,
   date,
   image,
-  category,
+
   source,
 }: ArticleProps) => {
   return (
@@ -29,7 +29,6 @@ export const Article = ({
       <div className="article__info">
         <div className="article__info__label">
           <p className="article__date">{moment(date).format("DD MMM YYYY")}</p>
-          <p className="article__category">{category}</p>
         </div>
         <h3 className="article__title">{title}</h3>
         <p className="article__description">{description}</p>

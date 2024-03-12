@@ -103,7 +103,6 @@ export const CountryPage = () => {
                       : "https://s3.reutersmedia.net/resources/r/?m=02&d=20210222&t=2&i=1552406671&w=&fh=545px&fw=&ll=&pl=&sq=&r=LYNXMPEH1L0EJ"
                   }
                   source={article.provider?.name || "Reuters"}
-                  category="news"
                 />
               );
             })}
