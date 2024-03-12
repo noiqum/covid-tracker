@@ -23,7 +23,13 @@ export const Article = ({
   return (
     <div className="article">
       <div className="article__image">
-        <img src={image} alt={title} />
+        <img
+          onError={(e) =>
+            (e.currentTarget.src = "https://placehold.co/600x400?text=No+Image")
+          }
+          src={image}
+          alt={title}
+        />
       </div>
 
       <div className="article__info">
