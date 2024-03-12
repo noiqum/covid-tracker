@@ -52,4 +52,18 @@
   &:nth-child(4) {
     background-color: rgba(108, 117, 125, 0.5);
   }
+  &--loading {
+    & > * {
+      animation: alert 0.5s ease-in-out 0s infinite normal;
+    }
+  }
+}
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
