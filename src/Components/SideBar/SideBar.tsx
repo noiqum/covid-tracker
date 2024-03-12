@@ -8,7 +8,7 @@ import { closeSidebar, openSidebar } from "../../store/sidebarSlice";
 
 export default function SideBar() {
   const dispatch = useAppDispatch();
-  const { response, loading, error } = useAppSelector((state) => state.total);
+  const { response, loading } = useAppSelector((state) => state.total);
   const { open } = useAppSelector((state) => state.sidebar);
   const [date, setDate] = useState("2020-04-01");
   useEffect(() => {
