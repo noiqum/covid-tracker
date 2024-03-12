@@ -9,10 +9,24 @@
   &.navigation--side {
     max-width: 100%;
     width: 100%;
+
+    @media screen and (min-width: 1280px) {
+      padding-left: calc((100vw - 1280px) / 2);
+      padding-right: calc((100vw - 1280px) / 2);
+      & .navigation__bar {
+        margin-right: unset;
+      }
+      & .SearchBar__input {
+        margin-right: unset;
+      }
+    }
   }
   &__icon__home {
     cursor: pointer;
     margin-left: 1rem;
+    @media screen and (min-width: 1024px) {
+      margin-left: unset;
+    }
   }
   &__title {
     font-size: 1.5rem;
