@@ -4,7 +4,11 @@
   height: 100%;
   width: 100%;
   & > main {
+    padding: 1rem;
     background-color: var(--one);
+    & > section {
+      margin-bottom: 1rem;
+    }
     @media screen and (min-width: 1024px) {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -111,6 +115,7 @@
     display: grid;
     max-width: 100%;
     min-height: 100vh;
+    gap: 1rem;
     @media screen and (min-width: 768px) {
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: 10vh 1fr 1fr;
